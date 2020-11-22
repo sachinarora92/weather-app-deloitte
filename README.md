@@ -44,7 +44,7 @@ http://localhost:8081/api/countries/Australia/cities/Melbourne/weather
 
 •	Security aspects are not included or demonstrated.
 •	Unit tests are added only for happy path scenarios.
-•	Error handling is done at the generic level. No detailed description is available in the API response. For unavailable cities/countries, it just returns 400 BAD request {“message”:”Bad request”}.
+•	Error handling is done at the generic level. No detailed description is available in the API response. For unavailable cities/countries, it just returns 400 BAD_REQUEST {“message”:”Bad request”}.
 •	Cloudhub deployment is not supported.
 •	Caching strategies are not incorporated in the API.
 
