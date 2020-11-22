@@ -1,0 +1,63 @@
+#%RAML 1.0
+---
+title: Weather monitoring REST APIs
+/countries:
+  get:
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                 "countries": [
+                   {"country":"Australia"},          
+                   {"country":"Newzealand"}
+                 ]
+              }
+  /{country}:
+    #get:
+    /cities:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
+                example: |
+                  {
+                    "cities" : [
+                      {
+                        "city":"Melbourne",
+                        "country":"Australia"
+                      },
+                      {
+                        "city":"Archerfield Aerodrome",
+                        "country":"Australia"
+                      }
+                    ]
+                  }
+      /{city}:
+        #get:
+        #put:
+        #patch:
+        /weather:
+          get:
+            responses:
+              200:
+                body:
+                  application/json:
+                    example: |
+                      {
+                        "location":"Melbourne",
+                        "Time":"11 AM",
+                        "Wind":"15 km per hour",
+                        "Visibility":"10 km",
+                        "SkyConditions":"sunny",
+                        "Temperature":"18",
+                        "DewPoint":"2 C",
+                        "RelativeHumidity":"35",
+                        "Status":"Normal"
+                      }
+          #post:
+          #put:
+          #delete:  
+    

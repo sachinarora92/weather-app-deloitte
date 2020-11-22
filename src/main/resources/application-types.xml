@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<types:mule xmlns:types="http://www.mulesoft.org/schema/mule/types">
+  <types:catalog>
+    <types:type name="xmltype" format="xml">
+      <types:example format="xml" element="{http://www.w3.org/2001/XMLSchema}schema" location="examples/GlobalWeather-1.xml"/>
+    </types:type>
+  </types:catalog>
+  <types:enrichment select="#abfe3abe-aeec-4e96-a128-955e3b8c1ae1">
+    <types:processor-declaration>
+      <types:input-event>
+        <types:message>
+          <types:payload type="xmltype"/>
+        </types:message>
+      </types:input-event>
+    </types:processor-declaration>
+  </types:enrichment>
+</types:mule>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:munit-tools="http://www.mulesoft.org/schema/mule/munit-tools"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xsi:schemaLocation="
+		http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+		http://www.mulesoft.org/schema/mule/munit-tools  http://www.mulesoft.org/schema/mule/munit-tools/current/mule-munit-tools.xsd">
+	<munit:config name="weather-suite.xml" />
+	<munit:test name="get:\countries\(country)\cities:weather-config-test-success" doc:id="09d675f1-a83c-4629-b08b-0c23dfc37c1c">
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="977ed3c6-64f6-4e6d-a94e-8a2960b0bae1" >
+				<munit:payload value="#[readUrl('classpath://getcountriescountrycitiesweatherconfigtestsuccess\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://getcountriescountrycitiesweatherconfigtestsuccess\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getcountriescountrycitiesweatherconfigtestsuccess\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\countries\(country)\cities:weather-config" doc:id="6630c80c-42c2-48d3-9abb-e107dee9a040" name="get:\countries\(country)\cities:weather-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="fc6bc879-386c-46e7-9b24-195134098706" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getcountriescountrycitiesweatherconfigtestsuccess::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\countries:weather-config-test-success" doc:id="bc982c1d-3b66-458d-b87f-c3d05657742a" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="a856b67a-c6f2-487e-b82e-425c80579d74" >
+				<munit:payload value="#[readUrl('classpath://getcountriesweatherconfigtestsuccess\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://getcountriesweatherconfigtestsuccess\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getcountriesweatherconfigtestsuccess\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\countries:weather-config" doc:id="58a56e82-a280-41a4-9146-8d3bcbbd01af" name="get:\countries:weather-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="a9f4cdde-1ffa-4eec-bf3d-90d531a70011" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getcountriesweatherconfigtestsuccess::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+	<munit:test name="get:\countries\(country)\cities\(city)\weather:weather-config-test-success" doc:id="d8df23fc-e914-4d7c-a93a-07497dee80aa" >
+		<munit:behavior >
+			<munit:set-event doc:name="Set Input" doc:id="5298a29f-38c7-47d0-b301-dad916bec493" >
+				<munit:payload value="#[readUrl('classpath://getcountriescountrycitiescityweatherweatherconfigtestsuccess\set-event_payload.dwl')]" encoding="UTF-8" />
+				<munit:attributes value="#[readUrl('classpath://getcountriescountrycitiescityweatherweatherconfigtestsuccess\set-event_attributes.dwl')]" />
+				<munit:variables >
+					<munit:variable key="outboundHeaders" value="#[readUrl('classpath://getcountriescountrycitiescityweatherweatherconfigtestsuccess\set-event_variable_.dwl')]" />
+				</munit:variables>
+			</munit:set-event>
+		</munit:behavior>
+		<munit:execution >
+			<flow-ref doc:name="Flow-ref to get:\countries\(country)\cities\(city)\weather:weather-config" doc:id="ba5a9fbd-68e1-4bf8-b9ce-cef0feeae76c" name="get:\countries\(country)\cities\(city)\weather:weather-config"/>
+		</munit:execution>
+		<munit:validation >
+			<munit-tools:assert doc:name="Assert payload" doc:id="2809943f-63f7-45df-9e43-d3efced7ebb1" message="The payload does not match">
+				<munit-tools:that ><![CDATA[#[%dw 2.0
+import getcountriescountrycitiescityweatherweatherconfigtestsuccess::assert_expression_payload
+---
+assert_expression_payload::main({payload: payload, attributes: attributes, vars: vars})]]]></munit-tools:that>
+			</munit-tools:assert>
+		</munit:validation>
+	</munit:test>
+
+
+</mule>
